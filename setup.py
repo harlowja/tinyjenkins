@@ -4,6 +4,7 @@ setup(
     name="tinyjenkins",
     version="0.0.1",
     author="Josh Harlow",
+    url='https://github.com/harlowja/tinyjenkins',
     author_email="harlowja@gmail.com",
     description="A tiny jenkins client library",
     license="ASL",
