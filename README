@@ -1,1 +1,2 @@
-# tinyjenkins
+A tiny jenkins library for interacting with jenkins
+json REST api.
