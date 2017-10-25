@@ -4,7 +4,6 @@ import logging
 import threading
 
 import munch
-from oslo_utils import units
 import requests
 from requests.adapters import HTTPAdapter
 
@@ -17,8 +16,8 @@ _JOB_PREFIX_LEN = len(_JOB_PREFIX)
 
 def _format_bytes(bytes_am):
     bytes_am = max(0, bytes_am)
-    mb_am = float(bytes_am) / units.M
-    gb_am = float(bytes_am) / units.G
+    mb_am = float(bytes_am) / (1000 * 1000)
+    gb_am = float(bytes_am) / (1000 * 1000 * 1000)
     return "%0.2fMB/%0.2fGB" % (mb_am, gb_am)
 
 

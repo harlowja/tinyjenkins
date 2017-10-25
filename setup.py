@@ -10,5 +10,5 @@ setup(
     keywords="jenkins",
     packages=['tinyjenkins'],
     long_description=open("README").read(),
-    install_requires=['requests', 'munch', 'oslo_utils'],
+    install_requires=['requests', 'munch'],
 )
