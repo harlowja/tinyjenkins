@@ -480,6 +480,18 @@ class Jenkins(object):
             plugins.append(tmp_plugin)
         return sorted(plugins, key=lambda plugin: plugin.name)
 
+    def delete_node(self, node):
+        if node.master or node.dynamic:
+            raise RuntimeError("Unable to delete the master node"
+                               " or dynamic nodes")
+        node_url = _combine_url(self._base_url,
+                                'computer', node.name, 'doDelete',
+                                add_api_path=False)
+        resp = self._do_request(
+            "POST", node_url, request_kwargs={'data': {}})
+        if resp.status_code != 200:
+            raise RequestError(resp)
+
     def perform_restart(self, safe=True):
         if safe:
             restart_url = _combine_url(self._base_url, 'safeRestart')
